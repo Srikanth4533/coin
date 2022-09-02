@@ -1,1 +1,5 @@
-export { lightTheme, darkTheme } from './constants'
+export { 
+    lightTheme, 
+    darkTheme,
+    screenSizeWidth 
+} from './constants'

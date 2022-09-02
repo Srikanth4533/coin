@@ -29,3 +29,20 @@ export const lightTheme = {
     hrLineTop: '#e4e4e4',
     hrLineBottom: '#f0f0f0',
 }
+
+
+export const screenSizeWidth = {
+    none: `(min-width: 0px)`,
+    mobileS: `(min-width: 320px)`,
+    mobileM: `(min-width: 375px)`,
+    mobileL: `(min-width: 470px)`,
+    tablet: `(min-width: 768px)`,
+    tabletS: `(min-width: 0px) and (max-width: 767px)`,
+    mobile: `(min-width: 0px) and (max-width: 899px)`,
+    desktopS: `(min-width: 900px)`,
+    desktopSM: `(min-width: 1000px)`,
+    desktopM: `(min-width: 1200px)`,
+    desktopML: `(min-width: 1300px)`,
+    desktopL: `(min-width: 1500px)`,
+    desktopXL: `(min-width: 1700px)`,
+  }
