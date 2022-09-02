@@ -1,4 +1,26 @@
 
+export const currencyList = {
+    usd: {
+      name: 'USD',
+      symbol: '$',
+    },
+    gbp: {
+      name: 'GBP',
+      symbol: '£',
+    },
+    eur: {
+      name: 'EUR',
+      symbol: '€',
+    },
+    btc: {
+      name: 'BTC',
+      symbol: '₿',
+    },
+    eth: {
+      name: 'ETH',
+      symbol: 'Ξ',
+    },
+  }
 
 export const darkTheme = {
     mainFont: '#FFF',
@@ -46,3 +68,7 @@ export const screenSizeWidth = {
     desktopL: `(min-width: 1500px)`,
     desktopXL: `(min-width: 1700px)`,
   }
+
+export const keyGen = () => {
+    return `${Math.random()} - ${Math.random()}`
+}
