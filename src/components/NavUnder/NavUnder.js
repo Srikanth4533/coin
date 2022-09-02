@@ -14,13 +14,11 @@ const NavUnder = () => {
     error 
   } = useSelector(state => state.config)
 
-  console.log(data)
-
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(getGlobalData())
-  }, [])
+  }, [currency])
 
   return (
     <Media
