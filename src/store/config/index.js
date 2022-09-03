@@ -46,6 +46,18 @@ function configReducer(state = initialState, action) {
                 isLoading:false,
                 error: false
             }
+
+        case TOGGLE_MENU:
+            return {
+                ...state,
+                displayMenu: !state.displayMenu
+            }
+
+        case TOGGLE_THEME:
+            return {
+                ...state,
+                themeOn: !state.themeOn
+            }
         default:
             return state
     }
