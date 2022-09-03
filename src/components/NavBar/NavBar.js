@@ -3,13 +3,13 @@ import React from 'react'
 import Media from 'react-media'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
-import { changeCurrency } from 'store/config/actions'
+import { changeCurrency, toggleMenu, toggleTheme } from 'store/config/actions'
 import { currencyList, keyGen, screenSizeWidth } from 'utils'
 import { CurrencySymbol, DisplayMenu, Hr, InputContainer, MobileMenu, MobileMenuIcon, MobileMenuItem, MobileMenuLink, Nav, NavbarWrap, NavLeft, NavLeftLi, NavLeftUl, NavRight, Select, SelectArrow, SelectContainer, SelectWrap, StyledLink, Theme, ThemeWrap } from './NavBar.css'
 
 const NavBar = () => {
     const { pathname } = useLocation()
-    const { currency, currencySymbol } = useSelector(state => state.config)
+    const { currency, currencySymbol, displayMenu } = useSelector(state => state.config)
     const dispatch = useDispatch()
 
     const handleChangeCurrency = (e) => {
@@ -62,25 +62,33 @@ const NavBar = () => {
                 </SelectContainer>
                 {matches.tablet && (
                     <ThemeWrap>
-                    <Theme size="1.8rem" />
+                    <Theme onClick={() => dispatch(toggleTheme())} size="1.8rem" />
                   </ThemeWrap>
                 )}
               </NavRight>
               {matches.tabletS && (
                 <MobileMenu>
-                <MobileMenuIcon size='1.8rem'></MobileMenuIcon>
-                <DisplayMenu>
-                    <MobileMenuItem>
-                        <MobileMenuLink to='/' >Coins</MobileMenuLink>
-                    </MobileMenuItem>
-                    <MobileMenuItem>
-                        <MobileMenuLink to='/portfolio'>Portfolio</MobileMenuLink>
-                    </MobileMenuItem>
-                    <Hr />
-                    <MobileMenuItem>
-                        Theme
-                    </MobileMenuItem>
-                </DisplayMenu>
+                <MobileMenuIcon onClick={() => dispatch(toggleMenu())} size='1.8rem'></MobileMenuIcon>
+                {displayMenu && (
+                  <DisplayMenu>
+                  <MobileMenuItem 
+                    currentLocation = {pathname === '/'} 
+                    onClick={() => dispatch(toggleMenu())}
+                  >
+                    <MobileMenuLink to='/' >Coins</MobileMenuLink>
+                  </MobileMenuItem>
+                  <MobileMenuItem
+                    currentLocation = {pathname === '/portfolio'}
+                    onClick={() => dispatch(toggleMenu())}
+                  >
+                    <MobileMenuLink to='/portfolio'>Portfolio</MobileMenuLink>
+                  </MobileMenuItem>
+                  <Hr />
+                  <MobileMenuItem onClick={() => dispatch(toggleMenu())}>
+                      <div onClick={() => dispatch(toggleTheme())}>Theme</div>
+                  </MobileMenuItem>
+              </DisplayMenu>
+                )}
               </MobileMenu>
               )}
             </>

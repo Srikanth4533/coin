@@ -1,5 +1,5 @@
 import axios from "axios"
-import { CHANGE_CURRENCY, GET_GLOBAL_DATA_ERROR, GET_GLOBAL_DATA_PENDING, GET_GLOBAL_DATA_SUCCESS } from "."
+import { CHANGE_CURRENCY, GET_GLOBAL_DATA_ERROR, GET_GLOBAL_DATA_PENDING, GET_GLOBAL_DATA_SUCCESS, TOGGLE_MENU, TOGGLE_THEME } from "."
 
 
 
@@ -26,5 +26,17 @@ export const getGlobalData = () => {
                 payload: error
             })
         }
+    }
+}
+
+export const toggleMenu = () => {
+    return {
+        type: TOGGLE_MENU
+    }
+}
+
+export const toggleTheme = () => {
+    return {
+        type: TOGGLE_THEME
     }
 }

@@ -4,13 +4,16 @@ import { NavUnder } from 'components'
 import NavBar  from 'components/NavBar/NavBar'
 import { AllCoins } from 'pages'
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import { darkTheme, lightTheme } from 'utils'
 
 const App = () => {
+  const { themeOn } = useSelector(state => state.config)
+  const theme = themeOn ? darkTheme : lightTheme
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
       <BrowserRouter>
       <Container>
