@@ -1,3 +1,4 @@
+import LoadingBox from 'components/LoadingBox'
 import React, { useEffect } from 'react'
 import Media from 'react-media'
 import { useDispatch, useSelector } from 'react-redux'
@@ -35,7 +36,7 @@ const NavUnder = () => {
         <NavUnderContainer>
         <NavUnderWrap>
           {error && <div>API Error. Refresh Page.</div>}
-          {isLoading && <div>Loading...</div>}
+          {isLoading && <LoadingBox bar height={10} />}
           {!isLoading && data && (
             <NavUnderUl>
               {matches.desktopML && (
