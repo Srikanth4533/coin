@@ -2,9 +2,9 @@ import { ChartsDisplay, ChartSlider } from 'components'
 import React, { useEffect } from 'react'
 import Media from 'react-media'
 import { useDispatch, useSelector } from 'react-redux'
-import { getChartsData } from 'store/allCoins/actions'
-import { screenSizeWidth } from 'utils'
-import { ChartsWrapper, Container, Content, H1 } from './AllCoins.css'
+import { getChartsData, setTimeInterval } from 'store/allCoins/actions'
+import { screenSizeWidth, timeIntervals } from 'utils'
+import { ChartsWrapper, Container, Content, DataSelectContainer, DataSelectItem, H1 } from './AllCoins.css'
 
 const AllCoins = () => {
 
@@ -58,8 +58,21 @@ const AllCoins = () => {
             </>
           )}
         </Media>
-        
-        
+
+        <DataSelectContainer>
+          {Object.keys(timeIntervals).map((interval) => {
+            return (
+              <DataSelectItem
+                onClick={
+                  () => dispatch(setTimeInterval(timeIntervals[interval]))
+                }
+                highlight={timeInterval === timeIntervals[interval]}
+              >
+                {interval}
+              </DataSelectItem>
+            )
+          })}
+        </DataSelectContainer>
       </Content>
      </Container>
   )

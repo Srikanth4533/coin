@@ -89,3 +89,12 @@ export const keyGen = () => {
 }
 
 export const today = new Date()
+
+export const timeIntervals = {
+  '1d': 1,
+  '1w': 7,
+  '1m': 30,
+  '3m': 90,
+  '6m': 180,
+  '1y': 365
+}

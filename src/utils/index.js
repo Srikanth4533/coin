@@ -5,7 +5,8 @@ export {
     currencyList ,
     keyGen,
     monthNames,
-    today
+    today,
+    timeIntervals
 } from './constants'
 
 export { prettierNumber }  from './prettierNumber'
