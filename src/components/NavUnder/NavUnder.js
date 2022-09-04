@@ -36,7 +36,7 @@ const NavUnder = () => {
         <NavUnderContainer>
         <NavUnderWrap>
           {error && <div>API Error. Refresh Page.</div>}
-          {isLoading && <LoadingBox bar height={10} />}
+          {isLoading && <LoadingBox bar height={20} />}
           {!isLoading && data && (
             <NavUnderUl>
               {matches.desktopML && (

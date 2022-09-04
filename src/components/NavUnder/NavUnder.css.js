@@ -10,7 +10,7 @@ export const NavUnderContainer = styled.div`
 export const NavUnderWrap = styled.div`
   max-width: 90%;
   background: ${props => props.theme.secondary};
-  padding-bottom: 6px;
+  padding-bottom: 10px;
   display: flex;
   align-items: center;
   border-bottom-left-radius: 25px;

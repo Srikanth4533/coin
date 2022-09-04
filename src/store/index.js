@@ -3,6 +3,7 @@ import persistReducer from "redux-persist/es/persistReducer";
 import persistStore from "redux-persist/es/persistStore";
 import storage from "redux-persist/lib/storage";
 import thunk from "redux-thunk";
+import allCoins from "./allCoins";
 import config from "./config";
 
 
@@ -12,8 +13,15 @@ const configKeeps = {
     whitelist: ['currency', 'currencySymbol', 'themeOn']
 }
 
+const allcoinsKeeps = {
+    key: 'allCoins',
+    storage: storage,
+    whitelist: ['timeInterval']
+}
+
 const rootReducer = combineReducers({
-    config: persistReducer(configKeeps, config)
+    config: persistReducer(configKeeps, config),
+    allCoins: persistReducer(allcoinsKeeps, allCoins)
 })
 
 const persistConfig = {

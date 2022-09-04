@@ -22,6 +22,21 @@ export const currencyList = {
     },
   }
 
+export const monthNames = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December'
+]
+
 export const darkTheme = {
     mainFont: '#FFF',
     primary: '#1F2128',
@@ -72,3 +87,5 @@ export const screenSizeWidth = {
 export const keyGen = () => {
     return `${Math.random()} - ${Math.random()}`
 }
+
+export const today = new Date()
