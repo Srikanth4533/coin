@@ -1,5 +1,5 @@
 import axios from "axios"
-import { GET_CHARTS_DATA_ERROR, GET_CHARTS_DATA_PENDING, GET_CHARTS_DATA_SUCCESS } from "."
+import { GET_CHARTS_DATA_ERROR, GET_CHARTS_DATA_PENDING, GET_CHARTS_DATA_SUCCESS, SET_TIME_INTERVAL } from "."
 
 
 export const getChartsData = () => {
@@ -57,5 +57,12 @@ export const getChartsData = () => {
                 payload: error
              })
         }
+    }
+}
+
+export const setTimeInterval = (interval) => {
+    return {
+        type: SET_TIME_INTERVAL,
+        payload: interval
     }
 }

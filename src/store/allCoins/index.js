@@ -14,6 +14,7 @@ const initialState = {
 export const GET_CHARTS_DATA_ERROR = 'GET_CHARTS_DATA_ERROR'
 export const GET_CHARTS_DATA_PENDING = 'GET_CHARTS_DATA_PENDING'
 export const GET_CHARTS_DATA_SUCCESS = 'GET_CHARTS_DATA_SUCCESS'
+export const SET_TIME_INTERVAL = 'SET_TIME_INTERVAL'
 
 function allCoinsReducer(state = initialState, action) {
     switch(action.type) {
@@ -36,6 +37,12 @@ function allCoinsReducer(state = initialState, action) {
                 ...action.payload,
                 isChartsLoading: false,
                 chartsError: false
+            }
+
+        case SET_TIME_INTERVAL:
+            return {
+                ...state,
+                timeInterval: action.payload
             }
         default:
             return state
