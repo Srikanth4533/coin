@@ -1,17 +1,24 @@
-import { ChartsDisplay, ChartSlider } from 'components'
+import { ChartsDisplay, ChartSlider, CoinsTable, LoadingBox } from 'components'
 import React, { useEffect } from 'react'
+import queryString from 'query-string'
 import Media from 'react-media'
 import { useDispatch, useSelector } from 'react-redux'
-import { getChartsData, setTimeInterval } from 'store/allCoins/actions'
-import { screenSizeWidth, timeIntervals } from 'utils'
-import { ChartsWrapper, Container, Content, DataSelectContainer, DataSelectItem, H1 } from './AllCoins.css'
+import { getChartsData, getCoinsData, setTimeInterval } from 'store/allCoins/actions'
+import { keyGen, screenSizeWidth, timeIntervals } from 'utils'
+import { ChartsWrapper, CoinsContainer, Container, Content, DataSelectContainer, DataSelectItem, H1 } from './AllCoins.css'
 
 const AllCoins = () => {
 
-  const { dataLabels, priceDataPoints, volumeDataPoints, isChartsLoading, timeInterval } = useSelector(state => state.allCoins)
+  const { coinsData, isCoinsLoading, dataLabels, priceDataPoints, volumeDataPoints, isChartsLoading, timeInterval, apiParams } = useSelector(state => state.allCoins)
   const { currency } = useSelector(state => state.config)
 
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    // const parsed = queryString.parse(window.location.search, { parseBooleans : true })
+    dispatch(getCoinsData())
+  },[currency, apiParams])
+
   useEffect(() => {
     dispatch(getChartsData())
   }, [currency, timeInterval])
@@ -30,17 +37,19 @@ const AllCoins = () => {
             {matches.desktopS && (
             <ChartsWrapper>
               <ChartsDisplay
+                data={coinsData}
                 dataLabels={dataLabels}
                 dataPoints={priceDataPoints}
-                isLoading={isChartsLoading}
+                isLoading={isChartsLoading || isCoinsLoading}
                 label="Price"
                 legendTitle="Price"
                 type="Line"
               />
               <ChartsDisplay
+                data={coinsData}
                 dataLabels={dataLabels}
                 dataPoints={volumeDataPoints}
-                isLoading={isChartsLoading}
+                isLoading={isChartsLoading || isCoinsLoading}
                 label="Volume"
                 legendTitle="Volume 24h"
                 type="Bar"
@@ -49,10 +58,11 @@ const AllCoins = () => {
             )}
             {matches.mobile && (
               <ChartSlider
+                data={coinsData}
                 dataLabels={dataLabels}
                 priceDataPoints={priceDataPoints}
                 volumeDataPoints={volumeDataPoints}
-                isLoading={isChartsLoading}
+                isLoading={isChartsLoading || isCoinsLoading}
               />
             )}
             </>
@@ -67,12 +77,25 @@ const AllCoins = () => {
                   () => dispatch(setTimeInterval(timeIntervals[interval]))
                 }
                 highlight={timeInterval === timeIntervals[interval]}
+                key={keyGen()}
               >
                 {interval}
               </DataSelectItem>
             )
           })}
         </DataSelectContainer>
+
+        <CoinsContainer>
+          {(isCoinsLoading || isChartsLoading || coinsData.length < 1) && <LoadingBox height={250} />}
+          {coinsData.length > 1 && !isChartsLoading && !isCoinsLoading &&
+            (
+              <CoinsTable 
+            data={coinsData} 
+            isLoading={isChartsLoading || isCoinsLoading}
+          />
+            )
+          }
+        </CoinsContainer>
       </Content>
      </Container>
   )

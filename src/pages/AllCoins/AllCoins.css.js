@@ -9,7 +9,7 @@ export const Container = styled.div`
 `
 export const Content = styled.div`
   width: 90%;
-  margin: auto;
+  /* margin: auto; */
 `
 export const H1 = styled.h1`
   font-size: 1.5rem;
@@ -52,4 +52,12 @@ export const DataSelectItem = styled.div`
     font-size: 10px;
     padding-inline: 8px;
   }
+`
+export const CoinsContainer = styled.div`
+  background: ${(props) => props.theme.secondary};
+  border-radius: 20px;
+  padding-block: 15px;
+  padding-inline: 6px;
+  margin-top: 25px;
+  margin-bottom: 59px;
 `

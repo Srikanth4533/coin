@@ -32,10 +32,22 @@ const NavBar = () => {
                 <NavLeft>
                 <NavLeftUl>
                   <NavLeftLi currentLocation={pathname === "/"}>
-                    <StyledLink to="/">Coins</StyledLink>
+                    <StyledLink 
+                      to={
+                        window.location.search
+                          ? `/${window.location.search}`
+                          : '/'
+                      }
+                    >Coins</StyledLink>
                   </NavLeftLi>
                   <NavLeftLi currentLocation={pathname === "/portfolio"}>
-                    <StyledLink to="/portfolio">Portfolio</StyledLink>
+                    <StyledLink 
+                      to={
+                        window.location.search
+                          ? `/portfolio/${window.location.search}`
+                          : '/portfolio'
+                      }
+                    >Portfolio</StyledLink>
                   </NavLeftLi>
                 </NavLeftUl>
               </NavLeft>
