@@ -1,4 +1,28 @@
 
+export const coinListPercentDisplayColors = [
+  ['rgb(255, 181, 40)', 'rgb(254, 225, 88)'],
+  ['rgb(71, 76, 119)', 'rgb(138, 146, 178)'],
+  ['rgb(26, 108, 85)', 'rgb(27, 162, 122)'],
+  ['rgb(187, 159, 51)', 'rgb(228, 205, 130)'],
+  ['rgb(254, 125, 67)', 'rgb(255, 220, 206)'],
+  ['rgb(179, 64, 74)', 'rgb(244, 178, 176)'],
+  ['rgb(29, 50, 125)', 'rgb(39, 117, 201)'],
+  ['rgb(131, 128, 139)', 'rgb(240, 146, 66)'],
+  ['rgb(152, 0, 157)', 'rgb(152, 93, 157)'],
+]
+
+export const displayClasses = [
+  'xxs',
+  'none',
+  'xxxs',
+  'xs',
+  's',
+  'm',
+  'l',
+  'xl',
+  'xxl'
+]
+
 export const currencyList = {
     usd: {
       name: 'USD',
@@ -83,6 +107,17 @@ export const screenSizeWidth = {
     desktopL: `(min-width: 1500px)`,
     desktopXL: `(min-width: 1700px)`,
   }
+
+export const coinBreakPoints = {
+  price: `(min-width: 316px)`,
+  number: `(min-width: 370px)`,
+  hour1: `(min-width: 500px)`,
+  hour24: `(min-width: 620px)`,
+  days7: `(min-width: 768px)`,
+  supply: `(min-width: 900px)`,
+  volume: `(min-width: 1100px)`,
+  chart: `(min-width: 1220px)`
+}
 
 export const keyGen = () => {
     return `${Math.random()} - ${Math.random()}`

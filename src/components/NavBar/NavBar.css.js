@@ -36,6 +36,14 @@ export const NavLeftLi = styled.li`
   border-radius: 12px;
   font-weight: 400;
 `
+// export const Link = ({ isActive, children, ...props}) => {
+//   return (
+//       <RRDLink {...props}>
+//           {children}
+//       </RRDLink>
+//   )
+// }
+
 export const StyledLink = styled(Link)`
   text-decoration: none;
   color: ${props => props.theme.mainFont};
