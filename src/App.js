@@ -2,7 +2,7 @@ import { Container } from 'App.css'
 import { GlobalStyle } from 'App.styles'
 import { NavUnder } from 'components'
 import NavBar  from 'components/NavBar/NavBar'
-import { AllCoins } from 'pages'
+import { AllCoins, Coin } from 'pages'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
@@ -21,6 +21,7 @@ const App = () => {
         <NavUnder />
         <Routes>
           <Route path='/' element={<AllCoins /> } />
+          <Route path='/coin/:coinId' element={<Coin />} />
         </Routes>
       </Container>
       </BrowserRouter>

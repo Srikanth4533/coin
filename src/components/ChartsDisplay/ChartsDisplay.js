@@ -4,6 +4,15 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { ChartContainer, ChartContent, ChartWrap } from './ChartsDisplay.css'
 
+const displayChart = ( props, type, legendDisplayNumber ) => (
+  type &&
+  props.data.length > 0 &&
+  props.dataLabels.length > 0 &&
+  props.dataPoints.length > 0 &&
+  !props.isLoading &&
+   legendDisplayNumber
+)
+
 const Charts = (props) => {
 
   const { latestPrice, latestVolume } = useSelector(state => state.allCoins)
@@ -21,8 +30,8 @@ const Charts = (props) => {
   return (
     <ChartContainer width={props.width}>
       <ChartContent>
-        {props.isLoading && <LoadingBox />}
-        {!props.isLoading && props.dataPoints && 
+      {!displayChart(props, type, legendDisplayNumber) && <LoadingBox />}
+        {displayChart(props, type, legendDisplayNumber) && 
            <>
            <ChartLegend
              legendDisplayNumber={legendDisplayNumber?.toFixed()}
