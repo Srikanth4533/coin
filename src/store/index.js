@@ -5,6 +5,7 @@ import storage from "redux-persist/lib/storage";
 import thunk from "redux-thunk";
 import allCoins from "./allCoins";
 import config from "./config";
+import coin from './coin'
 
 
 const configKeeps = {
@@ -21,7 +22,8 @@ const allcoinsKeeps = {
 
 const rootReducer = combineReducers({
     config: persistReducer(configKeeps, config),
-    allCoins: persistReducer(allcoinsKeeps, allCoins)
+    allCoins: persistReducer(allcoinsKeeps, allCoins),
+    coin
 })
 
 const persistConfig = {
