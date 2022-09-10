@@ -7,6 +7,7 @@ import allCoins from "./allCoins";
 import config from "./config";
 import coin from './coin'
 import portfolio from "./portfolio";
+import search from "./search";
 
 
 const configKeeps = {
@@ -31,7 +32,8 @@ const rootReducer = combineReducers({
     config: persistReducer(configKeeps, config),
     allCoins: persistReducer(allcoinsKeeps, allCoins),
     coin,
-    portfolio: persistReducer(portfolioKeeps, portfolio)
+    portfolio: persistReducer(portfolioKeeps, portfolio),
+    search
 })
 
 const persistConfig = {
