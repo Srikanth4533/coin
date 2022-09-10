@@ -9,7 +9,8 @@ export {
     timeIntervals,
     coinListPercentDisplayColors,
     displayClasses,
-    coinBreakPoints
+    coinBreakPoints,
+    myCoinsSeedData
 } from './constants'
 
 export { prettierNumber }  from './prettierNumber'
@@ -20,3 +21,4 @@ export { numberShortener } from './numberShortner'
 export { getArrow } from './getArrow'
 export { getFormattedDate } from './getFormattedDate'
 export { trimUrl } from './trimUrl'
+export { getYearMonthDayString } from './getYearMonthDayString'

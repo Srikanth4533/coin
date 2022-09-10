@@ -6,6 +6,8 @@ import thunk from "redux-thunk";
 import allCoins from "./allCoins";
 import config from "./config";
 import coin from './coin'
+import portfolio from "./portfolio";
+import search from "./search";
 
 
 const configKeeps = {
@@ -17,13 +19,21 @@ const configKeeps = {
 const allcoinsKeeps = {
     key: 'allCoins',
     storage: storage,
-    whitelist: ['timeInterval']
+    whitelist: ['timeInterval', 'apiParams']
+}
+
+const portfolioKeeps = {
+    key: 'portfolio',
+    storage: storage,
+    whitelist: ['myCoins']
 }
 
 const rootReducer = combineReducers({
     config: persistReducer(configKeeps, config),
     allCoins: persistReducer(allcoinsKeeps, allCoins),
-    coin
+    coin,
+    portfolio: persistReducer(portfolioKeeps, portfolio),
+    search
 })
 
 const persistConfig = {
