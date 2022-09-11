@@ -1,5 +1,11 @@
 import React from 'react'
-import { BulletPoint, PercentDisplay, PercentDisplayCircle, TopItem, TopItemsWrap, } from './ColumnPercentBar.css'
+import { 
+  BulletPoint, 
+  PercentDisplay, 
+  PercentDisplayCircle, 
+  TopItem, 
+  TopItemsWrap, 
+} from './ColumnPercentBar.css'
 
 const ColumnPercentBar = (props) => {
   return (

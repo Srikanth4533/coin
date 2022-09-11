@@ -4,7 +4,16 @@ import Media from 'react-media'
 import { useDispatch, useSelector } from 'react-redux'
 import { getGlobalData } from 'store/config/actions'
 import { prettierNumber, screenSizeWidth } from 'utils'
-import { Circle, NavBulletPoint, NavUnderContainer, NavUnderImg, NavUnderLi, NavUnderUl, NavUnderWrap, PercentDisplay } from './NavUnder.css'
+import { 
+  Circle, 
+  NavBulletPoint, 
+  NavUnderContainer, 
+  NavUnderImg, 
+  NavUnderLi, 
+  NavUnderUl, 
+  NavUnderWrap, 
+  PercentDisplay 
+} from './NavUnder.css'
 
 const NavUnder = () => {
   const { 

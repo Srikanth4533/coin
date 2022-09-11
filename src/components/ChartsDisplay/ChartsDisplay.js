@@ -15,6 +15,8 @@ const displayChart = ( props, type, legendDisplayNumber ) => (
 
 const Charts = (props) => {
 
+  console.log(props, "charts Display slider")
+
   const { latestPrice, latestVolume } = useSelector(state => state.allCoins)
 
   let type

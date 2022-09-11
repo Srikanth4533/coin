@@ -21,7 +21,6 @@ const Coin = () => {
 
   useEffect(() => {
     dispatch(getCoinData(coinId))
-    // eslint-disable-next-line
   }, [coinId])
 
   return (

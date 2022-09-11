@@ -7,7 +7,8 @@ import { SliderButton, SliderWrapper } from './ChartSlider.css'
 
 const ChartSlider = (props) => {
     const sliderRef = useRef(null)
-    console.log(sliderRef.current)
+    // console.log(sliderRef.current)
+    console.log(props, "slider")
     var settings = {
         dots: false,
         arrows:false,
@@ -27,6 +28,7 @@ const ChartSlider = (props) => {
         <Slider ref={sliderRef} {...settings} >
             <div>
                 <ChartsDisplay
+                  data={props.data}
                   dataLabels={props.dataLabels}
                   dataPoints={props.priceDataPoints}
                   isLoading={props.isLoading}
@@ -38,6 +40,7 @@ const ChartSlider = (props) => {
             </div>
             <div>
                 <ChartsDisplay
+                  data={props.data}
                   dataLabels={props.dataLabels}
                   dataPoints={props.volumeDataPoints}
                   isLoading={props.isLoading}

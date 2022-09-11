@@ -1,18 +1,44 @@
-import { ChartsDisplay, ChartSlider, CoinsTable, LoadingBox } from 'components'
+import { 
+  ChartsDisplay, 
+  ChartSlider, 
+  CoinsTable, 
+  LoadingBox 
+} from 'components'
 import React, { useEffect } from 'react'
-import queryString from 'query-string'
 import Media from 'react-media'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeChartOption, getChartsData, getCoinsData, setTimeInterval } from 'store/allCoins/actions'
 import { chartOptions, keyGen, screenSizeWidth, timeIntervals } from 'utils'
-import { ChartsWrapper, CoinsContainer, Container, Content, DataSelectContainer, DataSelectItem, H1, OveriewContainer, Select, SelectContainer, StyledArrow } from './AllCoins.css'
+import { 
+  ChartsWrapper, 
+  CoinsContainer, 
+  Container, 
+  Content, 
+  DataSelectContainer, 
+  DataSelectItem, 
+  H1, 
+  OveriewContainer, 
+  Select, 
+  SelectContainer, 
+  StyledArrow 
+} from './AllCoins.css'
 
 const AllCoins = () => {
 
-  const { categoryId, chartOption, coinsData, isCoinsLoading, dataLabels, priceDataPoints, volumeDataPoints, isChartsLoading, timeInterval, apiParams } = useSelector(state => state.allCoins)
+  const { 
+    categoryId, 
+    chartOption, 
+    coinsData, 
+    isCoinsLoading, 
+    dataLabels, 
+    priceDataPoints, 
+    volumeDataPoints, 
+    isChartsLoading, 
+    timeInterval, 
+    apiParams 
+  } = useSelector(state => state.allCoins)
   const { currency } = useSelector(state => state.config)
  
-  console.log(categoryId)
 
   const handleOnChange = (e) => {
     dispatch(changeChartOption(e.target.value))
@@ -21,13 +47,13 @@ const AllCoins = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    // const parsed = queryString.parse(window.location.search, { parseBooleans : true })
     dispatch(getCoinsData())
   },[currency, apiParams, categoryId])
 
   useEffect(() => {
     dispatch(getChartsData())
   }, [currency, timeInterval, chartOption])
+  
   return (
      <Container>
       <Content>

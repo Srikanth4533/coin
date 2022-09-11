@@ -41,7 +41,6 @@ const Portfolio = () => {
 
   useEffect(() => {
     dispatch(getCoinsData())
-    // eslint-disable-next-line
   }, [myCoins, currency])
 
   return (

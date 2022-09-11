@@ -1,13 +1,40 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { changeCategory, setOrderBy, setOrderDir, setPage, setPerPage } from 'store/allCoins/actions'
-import { ApiSettings, ApiSettingsLeft, ApiSettingsRight, CategoryContainer, CategoryItem, DownArrow, FilterDown, FilterUp, LeftArrow, Order, RightArrow, ScrollWrapper, SelectArrow, ShowInput, TableBody, TableContent, TableHeaderRow, TableWrapper, TopBottom, Wrapper } from './CoinsTable.css'
+import { 
+  changeCategory, 
+  setOrderBy, 
+  setOrderDir, 
+  setPage, 
+  setPerPage 
+} from 'store/allCoins/actions'
+import { 
+  ApiSettings, 
+  ApiSettingsLeft, 
+  ApiSettingsRight, 
+  CategoryContainer, 
+  CategoryItem, 
+  DownArrow, 
+  FilterDown, 
+  FilterUp, 
+  LeftArrow, 
+  Order, 
+  RightArrow, 
+  ScrollWrapper, 
+  SelectArrow, 
+  ShowInput, 
+  TableBody, 
+  TableContent, 
+  TableHeaderRow, 
+  TableWrapper, 
+  TopBottom, 
+  Wrapper 
+} from './CoinsTable.css'
 
 import { categories, coinBreakPoints, keyGen, rows } from 'utils'
 import Media from 'react-media'
 
 
-const CoinsTable = (props) => {
+const CoinsTable = React.memo((props) => {
   const { data } = props
   const { config, categoryId } = useSelector(state => state.allCoins)
   const { page, perPage, orderBy, orderDir } = useSelector(state => state.allCoins.apiParams)
@@ -109,6 +136,6 @@ const CoinsTable = (props) => {
       )}
     </Media>
   )
-}
+})
 
 export default CoinsTable

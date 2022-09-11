@@ -26,7 +26,7 @@ ChartJS.register(
   Filler
 );
 
-const Chart = (props) => {
+const Chart = React.memo((props) => {
 
   const lineData = {
     labels: props.dataLabels,
@@ -145,6 +145,6 @@ const Chart = (props) => {
       {props.type === 'Bar' && <Bar datasetIdKey='id' data={barData} options={options} />}
     </>
   )
-}
+})
 
 export default withTheme(Chart)

@@ -19,7 +19,7 @@ const configKeeps = {
 const allcoinsKeeps = {
     key: 'allCoins',
     storage: storage,
-    whitelist: ['timeInterval', 'apiParams']
+    whitelist: ['timeInterval', 'apiParams', 'categoryId', 'chartOption']
 }
 
 const portfolioKeeps = {
