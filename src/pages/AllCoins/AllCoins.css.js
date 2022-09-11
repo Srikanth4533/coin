@@ -51,6 +51,7 @@ export const DataSelectItem = styled.div`
   border-radius: 20px;
   font-size: 14px;
   user-select: none;
+  cursor: pointer;
 
   @media (max-width: 400px) {
     font-size: 10px;

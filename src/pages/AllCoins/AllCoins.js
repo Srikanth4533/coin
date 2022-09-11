@@ -9,8 +9,10 @@ import { ChartsWrapper, CoinsContainer, Container, Content, DataSelectContainer,
 
 const AllCoins = () => {
 
-  const { chartOption, coinsData, isCoinsLoading, dataLabels, priceDataPoints, volumeDataPoints, isChartsLoading, timeInterval, apiParams } = useSelector(state => state.allCoins)
+  const { categoryId, chartOption, coinsData, isCoinsLoading, dataLabels, priceDataPoints, volumeDataPoints, isChartsLoading, timeInterval, apiParams } = useSelector(state => state.allCoins)
   const { currency } = useSelector(state => state.config)
+ 
+  console.log(categoryId)
 
   const handleOnChange = (e) => {
     dispatch(changeChartOption(e.target.value))
@@ -21,7 +23,7 @@ const AllCoins = () => {
   useEffect(() => {
     // const parsed = queryString.parse(window.location.search, { parseBooleans : true })
     dispatch(getCoinsData())
-  },[currency, apiParams])
+  },[currency, apiParams, categoryId])
 
   useEffect(() => {
     dispatch(getChartsData())

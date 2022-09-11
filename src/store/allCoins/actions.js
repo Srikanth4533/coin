@@ -1,7 +1,14 @@
 import axios from "axios"
-import { CHANGE_CHART_OPTION, GET_CHARTS_DATA_ERROR, GET_CHARTS_DATA_PENDING, GET_CHARTS_DATA_SUCCESS, GET_COINS_DATA_ERROR, GET_COINS_DATA_PENDING, GET_COINS_DATA_SUCCESS, SET_ORDER_BY, SET_ORDER_DIR, SET_PAGE, SET_PER_PAGE, SET_TIME_INTERVAL, SORT_BY } from "."
+import { CHANGE_CATEGORY, CHANGE_CHART_OPTION, GET_CHARTS_DATA_ERROR, GET_CHARTS_DATA_PENDING, GET_CHARTS_DATA_SUCCESS, GET_COINS_DATA_ERROR, GET_COINS_DATA_PENDING, GET_COINS_DATA_SUCCESS, SET_ORDER_BY, SET_ORDER_DIR, SET_PAGE, SET_PER_PAGE, SET_TIME_INTERVAL, SORT_BY } from "."
 
 
+
+export const changeCategory = (category) => {
+    return {
+        type: CHANGE_CATEGORY,
+        payload: category
+    }
+}
 
 export const changeChartOption = (value) => {
     return {
@@ -15,11 +22,14 @@ export const getCoinsData = (queryOrder) => {
         const state = getState()
         const { currency } = state.config
         const { orderBy, orderDir, page, perPage } = state.allCoins.apiParams
+        const { categoryId } = state.allCoins
+
+        const category = categoryId !== 'cryptocurrency' ? `&category=${categoryId}` : ''
         
 
         try {
             dispatch({ type: GET_COINS_DATA_PENDING })
-            let { data } = await axios(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=${orderBy}_${orderDir}&per_page=${perPage}&page=${page}&sparkline=true&price_change_percentage=1h%2C24h%2C7d
+            let { data } = await axios(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}${category}&order=${orderBy}_${orderDir}&per_page=${perPage}&page=${page}&sparkline=true&price_change_percentage=1h%2C24h%2C7d
             `)
             console.log(data)
             dispatch({

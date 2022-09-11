@@ -26,9 +26,29 @@ export const ApiSettingsLeft = styled.div`
 export const ApiSettingsRight = styled.div`
 
 `
+export const CategoryContainer = styled.div`
+  display: flex;
+  /* border: 1px solid red; */
+`
+export const CategoryItem = styled.div`
+  background: ${props => props.selected ? props.theme.lineChart : props.theme.tertiary};
+  padding: 2px 6px;
+  font-size: 0.6rem;
+  margin-inline: 4px;
+  margin-block:2px;
+  border-radius: 6px;
+  cursor: pointer;
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+    margin-block: 0;
+  }
+`
+
 export const SelectArrow = styled(SelectArrows)`
   width: 12px;
   margin-bottom: 3x;
+  cursor: pointer;
 `
 
 export const TopBottom = styled.span`
@@ -48,6 +68,7 @@ export const Order = styled.div`
 export const DownArrow = styled(ArrowDropDown)`
   width: 24px;
   margin-bottom: 2px;
+  cursor: pointer;
 `
 export const ShowInput = styled.select`
   background: ${props => props.theme.secondary};
@@ -63,10 +84,12 @@ export const ShowInput = styled.select`
 export const LeftArrow = styled(ArrowLeftS)`
   width:20px;
   margin-bottom: 2px;
+  cursor: pointer;
 `
 export const RightArrow = styled(ArrowRightS)`
   width:20px;
   margin-bottom: 2px;
+  cursor: pointer;
 `
 export const FilterUp = styled(SortUp)`
   width: 15px;

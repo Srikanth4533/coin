@@ -11,7 +11,8 @@ export {
     displayClasses,
     coinBreakPoints,
     myCoinsSeedData,
-    chartOptions
+    chartOptions,
+    categories
 } from './constants'
 
 export { prettierNumber }  from './prettierNumber'

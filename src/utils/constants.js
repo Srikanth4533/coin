@@ -34,6 +34,25 @@ export const chartOptions = {
   }
 }
 
+export const categories = {
+  cryptocurrency: {
+    categoryId: "cryptocurrency",
+    name: "Cryptocurrencies",
+  },
+  "decentralized-finance-defi": {
+    categoryId: "decentralized-finance-defi",
+    name: "DeFi",
+  },
+  "non-fungible-tokens-nft": {
+    categoryId: "non-fungible-tokens-nft",
+    name: "NFTs",
+  },
+  metaverse: {
+    categoryId: "metaverse",
+    name: "Metaverse",
+  },
+}
+
 export const currencyList = {
     usd: {
       name: 'USD',

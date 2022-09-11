@@ -1,15 +1,15 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setOrderBy, setOrderDir, setPage, setPerPage } from 'store/allCoins/actions'
-import { ApiSettings, ApiSettingsLeft, ApiSettingsRight, DownArrow, FilterDown, FilterUp, LeftArrow, Order, RightArrow, ScrollWrapper, SelectArrow, ShowInput, TableBody, TableContent, TableHeaderRow, TableWrapper, TopBottom, Wrapper } from './CoinsTable.css'
+import { changeCategory, setOrderBy, setOrderDir, setPage, setPerPage } from 'store/allCoins/actions'
+import { ApiSettings, ApiSettingsLeft, ApiSettingsRight, CategoryContainer, CategoryItem, DownArrow, FilterDown, FilterUp, LeftArrow, Order, RightArrow, ScrollWrapper, SelectArrow, ShowInput, TableBody, TableContent, TableHeaderRow, TableWrapper, TopBottom, Wrapper } from './CoinsTable.css'
 
-import { coinBreakPoints, keyGen, rows } from 'utils'
+import { categories, coinBreakPoints, keyGen, rows } from 'utils'
 import Media from 'react-media'
 
 
 const CoinsTable = (props) => {
   const { data } = props
-  const { config } = useSelector(state => state.allCoins)
+  const { config, categoryId } = useSelector(state => state.allCoins)
   const { page, perPage, orderBy, orderDir } = useSelector(state => state.allCoins.apiParams)
   const dispatch = useDispatch()
 
@@ -41,6 +41,21 @@ const CoinsTable = (props) => {
             BY {orderBy.toUpperCase().split('_').join(' ')} <DownArrow onClick={() => dispatch(setOrderBy())} />
           </Order>
         </ApiSettingsLeft>
+
+        <CategoryContainer>
+          {Object.keys(categories).map((category) => {
+            return (
+              <CategoryItem
+                key={keyGen()}
+                onClick={() => dispatch(changeCategory(category))}
+                selected={categoryId === category}
+              >
+                {categories[category].name}
+              </CategoryItem>
+            )
+          })}
+        </CategoryContainer>
+
         <ApiSettingsRight>
             SHOW:
             <ShowInput 
