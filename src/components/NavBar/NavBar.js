@@ -20,6 +20,7 @@ import {
   NavLeftLi, 
   NavLeftUl, 
   NavRight, 
+  SearchSymbol, 
   Select, 
   SelectArrow, 
   SelectContainer, 
@@ -68,6 +69,7 @@ const NavBar = () => {
               )}
               <NavRight>
                 <InputContainer>
+                  <SearchSymbol size='1.4rem' />
                   <Search />
                 </InputContainer>
                 <SelectContainer>
@@ -94,8 +96,10 @@ const NavBar = () => {
               </NavRight>
               {matches.tabletS && (
                 <MobileMenu>
-                <MobileMenuIcon onClick={() => dispatch(toggleMenu())} size='1.8rem'></MobileMenuIcon>
-                {displayMenu && (
+                  <ThemeWrap>
+                <Theme onClick={() => dispatch(toggleTheme())} size="1.8rem" />
+              </ThemeWrap>
+                {/* {displayMenu && (
                   <DisplayMenu>
                   <MobileMenuItem 
                     currentLocation = {pathname === '/'} 
@@ -114,7 +118,7 @@ const NavBar = () => {
                       <div onClick={() => dispatch(toggleTheme())}>Theme</div>
                   </MobileMenuItem>
               </DisplayMenu>
-                )}
+                )} */}
               </MobileMenu>
               )}
             </>

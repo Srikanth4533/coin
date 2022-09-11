@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { DownArrow } from '@styled-icons/boxicons-solid/DownArrow'
 import { DarkTheme } from '@styled-icons/fluentui-system-regular/DarkTheme'
 import { Menu } from '@styled-icons/evaicons-solid/Menu'
+import{ SearchOutline } from '@styled-icons/evaicons-outline/SearchOutline'
 
 export const NavbarWrap = styled.div`
   width:100%;
@@ -48,7 +49,9 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
   color: ${props => props.theme.mainFont};
 `
-export const InputContainer = styled.div``
+export const InputContainer = styled.div`
+  position: relative;
+`
 
 export const SelectContainer = styled.div`
   display: flex;
@@ -63,6 +66,17 @@ export const SelectContainer = styled.div`
     margin-left: 6px;
   }
 `
+export const SearchSymbol = styled(SearchOutline)`
+  position: absolute;
+  margin-top: 9px;
+  margin-left: 10px;
+
+  @media (min-width:768px) {
+    margin-left: 24px;
+    margin-top: 13px;
+  }
+`
+
 export const CurrencySymbol = styled.div`
   width: 28px;
   display: flex;
@@ -114,6 +128,10 @@ export const ThemeWrap = styled.div`
   margin-left: 16px;
   padding: 10px 12px;
   border-radius: 12px;
+
+  @media (max-width: 767px) {
+    padding: 5px;
+  }
 `
 export const Theme = styled(DarkTheme)`
   
