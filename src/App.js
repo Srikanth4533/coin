@@ -11,7 +11,7 @@ import { darkTheme, lightTheme } from 'utils'
 
 const App = () => {
   const { themeOn } = useSelector(state => state.config)
-  const theme = themeOn ? darkTheme : lightTheme
+  const theme = themeOn ? lightTheme : darkTheme
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
