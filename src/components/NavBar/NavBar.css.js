@@ -132,6 +132,7 @@ export const DisplayMenu = styled.div`
   flex-direction: column;
   right: 0;
   margin-top: 10px;
+  z-index: 1000;
 `
 export const MobileMenuItem = styled.div`
   padding-block: 2px;
