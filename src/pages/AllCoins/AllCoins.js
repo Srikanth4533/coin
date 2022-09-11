@@ -3,14 +3,18 @@ import React, { useEffect } from 'react'
 import queryString from 'query-string'
 import Media from 'react-media'
 import { useDispatch, useSelector } from 'react-redux'
-import { getChartsData, getCoinsData, setTimeInterval } from 'store/allCoins/actions'
-import { keyGen, screenSizeWidth, timeIntervals } from 'utils'
-import { ChartsWrapper, CoinsContainer, Container, Content, DataSelectContainer, DataSelectItem, H1 } from './AllCoins.css'
+import { changeChartOption, getChartsData, getCoinsData, setTimeInterval } from 'store/allCoins/actions'
+import { chartOptions, keyGen, screenSizeWidth, timeIntervals } from 'utils'
+import { ChartsWrapper, CoinsContainer, Container, Content, DataSelectContainer, DataSelectItem, H1, OveriewContainer, Select, SelectContainer, StyledArrow } from './AllCoins.css'
 
 const AllCoins = () => {
 
-  const { coinsData, isCoinsLoading, dataLabels, priceDataPoints, volumeDataPoints, isChartsLoading, timeInterval, apiParams } = useSelector(state => state.allCoins)
+  const { chartOption, coinsData, isCoinsLoading, dataLabels, priceDataPoints, volumeDataPoints, isChartsLoading, timeInterval, apiParams } = useSelector(state => state.allCoins)
   const { currency } = useSelector(state => state.config)
+
+  const handleOnChange = (e) => {
+    dispatch(changeChartOption(e.target.value))
+  }
 
   const dispatch = useDispatch()
 
@@ -21,11 +25,26 @@ const AllCoins = () => {
 
   useEffect(() => {
     dispatch(getChartsData())
-  }, [currency, timeInterval])
+  }, [currency, timeInterval, chartOption])
   return (
      <Container>
       <Content>
-      <H1>Overview</H1>
+        <OveriewContainer>
+        <H1>{chartOptions[chartOption].name} Overview</H1>
+        <SelectContainer>
+          <Select
+            value={chartOption}
+            onChange={(e) => handleOnChange(e)}
+          >
+            {Object.keys(chartOptions).map((name) => {
+              return (
+                <option key={keyGen()} value={name} >{chartOptions[name].name}</option>
+              )
+            })}
+          </Select>
+          <StyledArrow size="0.6rem" />
+        </SelectContainer>
+        </OveriewContainer>
         <Media
           queries={{
             desktopS: screenSizeWidth.desktopS,

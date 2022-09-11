@@ -1,12 +1,21 @@
 import axios from "axios"
-import { GET_CHARTS_DATA_ERROR, GET_CHARTS_DATA_PENDING, GET_CHARTS_DATA_SUCCESS, GET_COINS_DATA_ERROR, GET_COINS_DATA_PENDING, GET_COINS_DATA_SUCCESS, SET_ORDER_BY, SET_ORDER_DIR, SET_PAGE, SET_PER_PAGE, SET_TIME_INTERVAL, SORT_BY } from "."
+import { CHANGE_CHART_OPTION, GET_CHARTS_DATA_ERROR, GET_CHARTS_DATA_PENDING, GET_CHARTS_DATA_SUCCESS, GET_COINS_DATA_ERROR, GET_COINS_DATA_PENDING, GET_COINS_DATA_SUCCESS, SET_ORDER_BY, SET_ORDER_DIR, SET_PAGE, SET_PER_PAGE, SET_TIME_INTERVAL, SORT_BY } from "."
 
+
+
+export const changeChartOption = (value) => {
+    return {
+        type: CHANGE_CHART_OPTION,
+        payload: value
+    }
+}
 
 export const getCoinsData = (queryOrder) => {
     return async(dispatch, getState) => {
         const state = getState()
         const { currency } = state.config
         const { orderBy, orderDir, page, perPage } = state.allCoins.apiParams
+        
 
         try {
             dispatch({ type: GET_COINS_DATA_PENDING })
@@ -40,11 +49,11 @@ export const getChartsData = () => {
     return async(dispatch, getState) => {
         const state = getState()
         const { currency } = state.config
-        const { timeInterval } = state.allCoins
+        const { timeInterval, chartOption } = state.allCoins
 
         try {
             dispatch({ type: GET_CHARTS_DATA_PENDING })
-            let { data } = await axios(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=${currency}&days=${timeInterval}&interval=daily`)
+            let { data } = await axios(`https://api.coingecko.com/api/v3/coins/${chartOption}/market_chart?vs_currency=${currency}&days=${timeInterval}&interval=daily`)
             // console.log(data)
 
             let prices = data.prices

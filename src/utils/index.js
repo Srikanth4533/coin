@@ -10,7 +10,8 @@ export {
     coinListPercentDisplayColors,
     displayClasses,
     coinBreakPoints,
-    myCoinsSeedData
+    myCoinsSeedData,
+    chartOptions
 } from './constants'
 
 export { prettierNumber }  from './prettierNumber'

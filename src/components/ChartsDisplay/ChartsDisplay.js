@@ -6,9 +6,9 @@ import { ChartContainer, ChartContent, ChartWrap } from './ChartsDisplay.css'
 
 const displayChart = ( props, type, legendDisplayNumber ) => (
   type &&
-  props.data.length > 0 &&
-  props.dataLabels.length > 0 &&
-  props.dataPoints.length > 0 &&
+  props.data?.length > 0 &&
+  props.dataLabels?.length > 0 &&
+  props.dataPoints?.length > 0 &&
   !props.isLoading &&
    legendDisplayNumber
 )
