@@ -23,6 +23,17 @@ export const displayClasses = [
   'xxl'
 ]
 
+export const chartOptions = {
+  bitcoin: {
+      name: 'Bitcoin',
+      symbol: 'btc'
+  },
+  ethereum: {
+      name: 'Ethereum',
+      symbol: 'eth'
+  }
+}
+
 export const currencyList = {
     usd: {
       name: 'USD',

@@ -58,6 +58,7 @@ const initialState = {
         orderBy: 'market_cap',
         orderDir: 'desc'
     },
+    chartOption: 'bitcoin',
     coinsData:[],
     dataLabels: [],
     timeInterval: 30,
@@ -72,6 +73,7 @@ const initialState = {
 }
 
 
+export const CHANGE_CHART_OPTION = 'CHANGE_CHART_OPTION'
 export const GET_COINS_DATA_ERROR = 'GET_COINS_DATA_ERROR'
 export const GET_COINS_DATA_PENDING = 'GET_COINS_DATA_PENDING'
 export const GET_COINS_DATA_SUCCESS = 'GET_COINS_DATA_SUCCESS'
@@ -87,6 +89,11 @@ export const SORT_BY = 'SORT_BY'
 
 function allCoinsReducer(state = initialState, action) {
     switch(action.type) {
+        case CHANGE_CHART_OPTION:
+            return {
+                ...state,
+                chartOption: action.payload
+            }
         case GET_COINS_DATA_ERROR:
             return {
                 ...state,
