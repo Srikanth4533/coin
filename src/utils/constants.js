@@ -104,6 +104,7 @@ export const darkTheme = {
     lineChartGradientBottom: '#000',
     hrLineTop: '#707070',
     hrLineBottom: '#646565',
+    icon: "invert(100%)",
 }
   
 export const lightTheme = {
@@ -119,6 +120,7 @@ export const lightTheme = {
     lineChartGradientBottom: '#FFF',
     hrLineTop: '#e4e4e4',
     hrLineBottom: '#f0f0f0',
+    icon: "invert(0%)",
 }
 
 

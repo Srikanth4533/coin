@@ -1,6 +1,6 @@
 import { Container } from 'App.css'
 import { GlobalStyle } from 'App.styles'
-import { NavUnder } from 'components'
+import { LinksFooter, NavUnder } from 'components'
 import Footer from 'components/Footer'
 import NavBar  from 'components/NavBar/NavBar'
 import { AllCoins, Coin, Portfolio } from 'pages'
@@ -25,6 +25,7 @@ const App = () => {
           <Route path='/portfolio' element={<Portfolio />} />
           <Route path='/coin/:coinId' element={<Coin />} />
         </Routes>
+        <LinksFooter />
         <Footer />
       </Container>
       </BrowserRouter>
