@@ -64,7 +64,7 @@ export const CoinsContainer = styled.div`
   padding-block: 15px;
   padding-inline: 6px;
   margin-top: 25px;
-  margin-bottom: 59px;
+  margin-bottom: 16px;
 `
 export const OveriewContainer = styled.div`
   display: flex;
