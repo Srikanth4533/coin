@@ -1,5 +1,5 @@
 import { Cell } from 'components'
-import { getArrow } from 'utils'
+import { getArrow, roundToNumber } from 'utils'
 import { useSelector } from 'react-redux'
 
 const ColumnTwentyFourHourChange = (props) => {
@@ -8,15 +8,7 @@ const ColumnTwentyFourHourChange = (props) => {
     return '-'
   }
 
-  let twentyFourHourChangeAdjusted = Math.abs(
-    props.twentyFourHourChange.toFixed(2),
-  )
-  if (
-    twentyFourHourChangeAdjusted >= 1000 ||
-    twentyFourHourChangeAdjusted <= -1000
-  ) {
-    twentyFourHourChangeAdjusted = '1000+'
-  }
+  let twentyFourHourChangeAdjusted = roundToNumber(props.twentyFourHourChange, 2)
   return (
     <Cell number={props.twentyFourHourChange || '-'}>
       {(currency !== props.symbol && (
