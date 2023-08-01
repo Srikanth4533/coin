@@ -1,5 +1,5 @@
 import { Cell } from 'components'
-import { getArrow } from 'utils'
+import { getArrow, roundToNumber } from 'utils'
 import { useSelector } from 'react-redux'
 
 const ColumnSevenDayChange = (props) => {
@@ -7,10 +7,7 @@ const ColumnSevenDayChange = (props) => {
   if (!props.sevenDayChange) {
     return '-'
   }
-  let sevenDayChangeAdjusted = Math.abs(props.sevenDayChange.toFixed(2))
-  if (sevenDayChangeAdjusted >= 1000 || sevenDayChangeAdjusted <= -1000) {
-    sevenDayChangeAdjusted = '1000+'
-  }
+  let sevenDayChangeAdjusted = roundToNumber(props.sevenDayChange, 2)
   return (
     <>
       <Cell number={props.sevenDayChange}>
