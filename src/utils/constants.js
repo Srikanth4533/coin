@@ -51,6 +51,10 @@ export const categories = {
     categoryId: "metaverse",
     name: "Metaverse",
   },
+  metaverse: {
+    categoryId: "metaverse",
+    name: "Sindhu",
+  },
 }
 
 export const currencyList = {
